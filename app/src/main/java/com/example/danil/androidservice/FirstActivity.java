@@ -33,15 +33,16 @@ public class FirstActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
+        seekBar = (SeekBar)findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(this);
+
         textViewResult = (TextView) findViewById(R.id.textViewResult);
         textViewInfo = (TextView) findViewById(R.id.textViewInfo);
         textViewTime = (TextView) findViewById(R.id.textViewTime);
+        textViewTime.setText(String.valueOf(seekBar.getProgress()));
 
         btnOk = (Button) findViewById(R.id.buttonStart);
         btnOk.setOnClickListener(onClickListener);
-
-        seekBar = (SeekBar)findViewById(R.id.seekBar);
-        seekBar.setOnSeekBarChangeListener(this);
     }
 
     private final View.OnClickListener onClickListener = new View.OnClickListener() {
